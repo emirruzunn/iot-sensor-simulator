@@ -13,7 +13,15 @@ class SensorSimulator:
         return round(random.uniform(30.0, 90.0), 1)
 
     def read_battery(self) -> float:
-        self.battery = max(0.0, round(self.battery - random.uniform(0.1, 0.5), 1))
+        """
+        Batarya seviyesini her çağrıda 0.1 ile 0.5 arasında rastgele azaltır.
+        Değerin 0.0'ın altına düşmesini engeller.
+        """
+        decrease_amount = random.uniform(0.1, 0.5)
+        
+        # max(0.0, ...) sayesinde batarya sıfırın altına düşmez
+        self.battery = max(0.0, round(self.battery - decrease_amount, 1))
+        
         return self.battery
 
     def read_all(self) -> dict:
