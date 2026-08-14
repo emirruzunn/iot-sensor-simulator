@@ -1,0 +1,16 @@
+# Python önbellek ve sanal ortam
+__pycache__/
+*.py[cod]
+.venv/
+env/
+venv/
+
+# Editör yapılandırmaları
+.vscode/
+.idea/
+
+# Üretilen veri ve log dosyaları (Asla repoya girmemeli)
+data/
+*.csv
+*.json
+*.log
