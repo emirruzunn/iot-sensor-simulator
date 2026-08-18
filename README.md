@@ -1,8 +1,8 @@
 # IoT Sensor Simulator & CLI Reporting Tool
 
-Sanal IoT sensör verileri üreten, CSV/JSON formatlarında kaydeden ve terminal üzerinden istatistiksel raporlar sunan Python CLI uygulaması.
+Sanal IoT sensör verileri üreten, CSV/JSON formatlarında kaydeden ve terminal üzerinden istatistiksel raporlar sunan Python CLI uygulaması
 
-A lightweight Python CLI tool that generates simulated IoT sensor readings, saves them in CSV/JSON formats, and provides statistical reporting.
+A lightweight Python CLI tool that generates simulated IoT sensor readings, saves them in CSV/JSON formats, and provides statistical reporting
 
 ## Kullanım / Usage
 
