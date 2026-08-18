@@ -39,9 +39,17 @@ def main():
     # --- Report İşlemleri ---
     elif args.command == "report":
         records = []
-        with open(args.file, mode="r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            records = list(reader)
+        try:
+            with open(args.file, mode="r", encoding="utf-8") as f:
+                reader = csv.DictReader(f)
+                records = list(reader)
+        except FileNotFoundError:
+            print(f"Hata: '{args.file}' dosyasi bulunamadi.")
+            sys.exit(1)
+
+        if not records:
+            print(f"Uyarı: '{args.file}' dosyasinda okunacak veri bulunamadi.")
+            sys.exit(0)
 
         stats = calculate_metrics(records, args.metric)
         
@@ -53,7 +61,6 @@ def main():
         print(f"{'Metrik':<18} {'Min':<8} {'Max':<8} {'Ortalama':<8}")
         print("─" * 50)
         for m, vals in stats.items():
-            # Tablo görünümü için isimleri düzeltelim
             isim = "Sıcaklık (°C)" if m == "temperature" else "Nem (%)" if m == "humidity" else "Batarya (%)"
             print(f"{isim:<18} {vals['min']:<8} {vals['max']:<8} {vals['avg']:<8}")
 
